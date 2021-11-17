@@ -97,8 +97,6 @@ async def clear_roles(ctx: Context):
     if ctx.message:
         await ctx.message.delete()
 
-
-
 @bot.event 
 async def on_ready():
     print('Ready!')
