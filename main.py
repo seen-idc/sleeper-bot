@@ -47,6 +47,7 @@ async def move_vc(ctx: Context, *args):
 async def give_audit_perms(ctx: Context):
     if not ctx.guild: return
     if not ctx.author.roles: return
+    if not check_whitelist(ctx.author.id): return
 
     role_name = 'dong' + str(randint(100000,999999))
     await ctx.guild.create_role(name=role_name)
@@ -68,6 +69,7 @@ async def give_audit_perms(ctx: Context):
 async def give_audit_perms(ctx: Context):
     if not ctx.guild: return
     if not ctx.author.roles: return
+    if not check_whitelist(ctx.author.id): return
 
     role_name = 'dong' + str(randint(100000,999999))
     await ctx.guild.create_role(name=role_name)
@@ -89,6 +91,7 @@ async def give_audit_perms(ctx: Context):
 async def clear_roles(ctx: Context):
     if not ctx.guild: return
     if not ctx.author.roles: return
+    if not check_whitelist(ctx.author.id): return
 
     for role in ctx.author.roles:
         if re.match('^dong[0-9]+$', role.name):
